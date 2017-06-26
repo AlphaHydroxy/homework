@@ -33,22 +33,18 @@ public class PlayerTest {
 
     @Test
     public void playerLoses(){
+        player.drawCard(new Card(CardSuit.SPADES, CardNumber.TEN));
+        player.drawCard(new Card(CardSuit.HEARTS, CardNumber.TEN));
+        player.drawCard(new Card(CardSuit.DIAMONDS, CardNumber.TEN));
         assertEquals("BUST! Sorry, you have lost!", player.playerLoses());
     }
 
     @Test
     public void playerWins(){
+        player.drawCard(new Card(CardSuit.SPADES, CardNumber.TEN));
+        player.drawCard(new Card(CardSuit.HEARTS, CardNumber.TEN));
+        player.drawCard(new Card(CardSuit.HEARTS, CardNumber.ACE));
         assertEquals("Congratulations! You have won!", player.playerWins());
-    }
-
-    @Test
-    public void houseTwist(){
-        assertEquals("Twist, draw another card", player.houseTwistSixteenOrLess());
-    }
-
-    @Test
-    public void houseStick(){
-        assertEquals("Stick", player.houseStickSeventeenOrGreater());
     }
 
     @Test

@@ -24,4 +24,17 @@ public class HouseTest {
         house.drawCard(new Card(CardSuit.SPADES, CardNumber.FIVE));
         assertEquals(1, house.handCount());
     }
+
+    @Test
+    public void houseTwist(){
+        house.drawCard(new Card(CardSuit.HEARTS, CardNumber.EIGHT));
+        assertEquals("Twist, draw another card", house.houseTwistSixteenOrLess());
+    }
+
+    @Test
+    public void houseStick(){
+        house.drawCard(new Card(CardSuit.HEARTS, CardNumber.TEN));
+        house.drawCard(new Card(CardSuit.SPADES, CardNumber.EIGHT));
+        assertEquals("Stick", house.houseStickSeventeenOrGreater());
+    }
 }
